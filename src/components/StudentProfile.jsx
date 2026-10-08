@@ -18,21 +18,31 @@ function StudentProfile({
 
   return (
     <div className="student-profile">
-      <p>
-        <strong>Name:</strong> {name}
-      </p>
+      <h2 className="profile-title">Student Profile</h2>
 
-      <p>
-        <strong>Department:</strong> {department}
-      </p>
+      <div className="student-info">
+        <div className="info-box">
+          <span className="info-label">Student Name</span>
+          <span className="info-value">{name}</span>
+        </div>
 
-      <p>
-        <strong>Year:</strong> {year}
-      </p>
+        <div className="info-box">
+          <span className="info-label">Department</span>
+          <span className="info-value">{department}</span>
+        </div>
 
-      <p>
-        <strong>Practice Sessions Completed:</strong> {practiceCount}
-      </p>
+        <div className="info-box">
+          <span className="info-label">Academic Year</span>
+          <span className="info-value">{year}</span>
+        </div>
+      </div>
+
+      <div className="practice-counter">
+        <span className="practice-number">{practiceCount}</span>
+        <span className="practice-label">
+          Practice Sessions Completed
+        </span>
+      </div>
     </div>
   );
 }

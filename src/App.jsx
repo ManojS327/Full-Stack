@@ -16,7 +16,7 @@ function App() {
   };
 
   const completePractice = () => {
-    setPracticeCount(practiceCount + 1);
+    setPracticeCount((previousCount) => previousCount + 1);
   };
 
   const resetPractice = () => {
@@ -24,7 +24,7 @@ function App() {
   };
 
   const toggleProfile = () => {
-    setShowProfile(!showProfile);
+    setShowProfile((previousState) => !previousState);
   };
 
   return (
@@ -32,6 +32,11 @@ function App() {
       <Header />
 
       <main>
+        <div className="page-title">
+          <h2>Student Practice Tracker</h2>
+          <p>Track and manage your daily practice sessions</p>
+        </div>
+
         {showProfile && (
           <StudentProfile
             name={student.name}
@@ -42,15 +47,24 @@ function App() {
         )}
 
         <div className="buttons">
-          <button onClick={completePractice}>
+          <button
+            className="complete-btn"
+            onClick={completePractice}
+          >
             Complete Practice
           </button>
 
-          <button onClick={resetPractice}>
+          <button
+            className="reset-btn"
+            onClick={resetPractice}
+          >
             Reset
           </button>
 
-          <button onClick={toggleProfile}>
+          <button
+            className="hide-btn"
+            onClick={toggleProfile}
+          >
             {showProfile ? "Hide Profile" : "Show Profile"}
           </button>
         </div>
